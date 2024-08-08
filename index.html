@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ri38xe1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #004d40, #00796b);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            cursor: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24"%3E%3Ctext x="0" y="20" font-size="20" fill="%23ffffff"%3E%E0%B6%9E%3C/text%3E%3C/svg%3E'), auto;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            width: 50%;
+            transition: background 0.3s ease;
+        }
+        p {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+        .contacts {
+            margin-top: 20px;
+        }
+        .contacts a {
+            text-decoration: none;
+            margin: 0 10px;
+            display: inline-block;
+            padding: 10px 15px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            transition: background 0.3s ease, transform 0.3s ease;
+            color: #80cbc4; /* Teal color */
+        }
+        .contacts a.dark-mode {
+            background: rgba(0, 0, 0, 0.7); /* Dark mode background */
+            color: #80cbc4; /* Teal color */
+        }
+        .contacts a:hover {
+            background: linear-gradient(135deg, #004d40, #00796b);
+            color: #fff;
+            transform: scale(1.05);
+        }
+        .toggle-btn, .listen-btn {
+            position: absolute;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .toggle-btn {
+            top: 10px;
+            right: 10px;
+        }
+        .listen-btn {
+            top: 10px;
+            left: 10px;
+            background: #80cbc4; /* Default background color */
+        }
+        .light-mode .listen-btn {
+            /* No change needed for listen button in light mode */
+        }
+        .dark-mode .listen-btn {
+            /* No change needed for listen button in dark mode */
+        }
+        .light-mode body {
+            background: linear-gradient(135deg, #b2dfdb, #e0f2f1); /* Light teal gradient */
+            color: #333;
+        }
+        .light-mode .container {
+            background: rgba(255, 255, 255, 0.9); /* Slightly off-white background */
+            color: #333;
+        }
+        .light-mode .toggle-btn {
+            background: #004d40;
+            color: #80cbc4;
+        }
+        .dark-mode .toggle-btn {
+            background: #80cbc4;
+            color: #004d40;
+        }
+    </style>
+</head>
+<body>
+    <button class="listen-btn" onclick="window.open('https://music.youtube.com/watch?v=JJQHhceoXU8&list=RDAMVMJJQHhceoXU8', '_blank')">Listen</button>
+    <button class="toggle-btn" onclick="toggleMode()">Dark</button>
+    <div class="container">
+        <p>hi~ Divyanshu here; @ri38xe1</p>
+        <p>Currently pursuing Btech CSE</p>
+        <div class="contacts">
+            <a href="mailto:divyanshu9741@gmail.com" id="email" class="dark-mode" onclick="copyEmail()">Email</a>
+            <a href="https://www.instagram.com/ri38xe1" class="dark-mode" target="_blank">Instagram</a>
+            <a href="https://www.linkedin.com/in/ri38xe1" class="dark-mode" target="_blank">LinkedIn</a>
+        </div>
+    </div>
+
+    <script>
+        function copyEmail() {
+            navigator.clipboard.writeText('divyanshu9741@gmail.com').then(() => {
+                alert('Sauce Copied ;3');
+            });
+        }
+
+        function toggleMode() {
+            const body = document.body;
+            body.classList.toggle('light-mode');
+            body.classList.toggle('dark-mode');
+            const toggleBtn = document.querySelector('.toggle-btn');
+            const contactLinks = document.querySelectorAll('.contacts a');
+            
+            if (body.classList.contains('light-mode')) {
+                toggleBtn.textContent = 'Nerd';
+                contactLinks.forEach(link => link.classList.remove('dark-mode'));
+                contactLinks.forEach(link => link.classList.add('default'));
+            } else {
+                toggleBtn.textContent = 'Dark';
+                contactLinks.forEach(link => link.classList.remove('default'));
+                contactLinks.forEach(link => link.classList.add('dark-mode'));
+            }
+        }
+    </script>
+</body>
+</html>
